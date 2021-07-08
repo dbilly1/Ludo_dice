@@ -25,6 +25,12 @@ class DicePage extends StatefulWidget {
 class _DicePageState extends State<DicePage> {
   int leftDiceVariable = 1;
   int rightDiceVariable = 1;
+  void changeDice() {
+    setState(() {
+      leftDiceVariable = Random().nextInt(6) + 1;
+      rightDiceVariable = Random().nextInt(6) + 1;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,9 +40,7 @@ class _DicePageState extends State<DicePage> {
           Expanded(
             child: MaterialButton(
               onPressed: () {
-                setState(() {
-                  leftDiceVariable = Random().nextInt(6) + 1;
-                });
+                changeDice();
               },
               child: Image.asset('images/dice$leftDiceVariable.png'),
             ),
@@ -44,9 +48,7 @@ class _DicePageState extends State<DicePage> {
           Expanded(
             child: MaterialButton(
               onPressed: () {
-                setState(() {
-                  rightDiceVariable = Random().nextInt(6) + 1;
-                });
+                changeDice();
               },
               child: Image.asset('images/dice$rightDiceVariable.png'),
             ),
