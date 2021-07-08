@@ -24,13 +24,17 @@ class DicePage extends StatelessWidget {
         children: [
           Expanded(
             child: MaterialButton(
-              onPressed: () {},
+              onPressed: () {
+                print('Left dice has been clicked');
+              },
               child: Image.asset('images/dice1.png'),
             ),
           ),
           Expanded(
             child: MaterialButton(
-              onPressed: () {},
+              onPressed: () {
+                print('Right dice pressed');
+              },
               child: Image.asset('images/dice1.png'),
             ),
           ),
