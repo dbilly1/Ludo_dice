@@ -5,10 +5,10 @@ void main() {
     MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.blue[200],
+        backgroundColor: Colors.brown,
         appBar: AppBar(
           title: Center(child: Text('Dicee')),
-          backgroundColor: Colors.blue[200],
+          backgroundColor: Colors.brown,
         ),
         body: DicePage(),
       ),
@@ -16,7 +16,14 @@ void main() {
   );
 }
 
-class DicePage extends StatelessWidget {
+class DicePage extends StatefulWidget {
+  @override
+  _DicePageState createState() => _DicePageState();
+}
+
+class _DicePageState extends State<DicePage> {
+  var leftDiceVariable = 1;
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -25,9 +32,11 @@ class DicePage extends StatelessWidget {
           Expanded(
             child: MaterialButton(
               onPressed: () {
-                print('Left dice has been clicked');
+                setState(() {
+                  leftDiceVariable = 3;
+                });
               },
-              child: Image.asset('images/dice1.png'),
+              child: Image.asset('images/dice$leftDiceVariable.png'),
             ),
           ),
           Expanded(
